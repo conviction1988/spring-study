@@ -1,0 +1,27 @@
+unKnown:
+  code: "-9999"
+  message: "An unknown error has occurred."
+invalidAccessToken:
+  code: "-9998"
+  message: "Invalid access token"
+invalidRefreshTokenError:
+  code: "-9997"
+  message: "Error on Refresh Token"
+userNotFound:
+  code: "-1000"
+  message: "This member not exist"
+resourceNotExist:
+  code: "-1001"
+  message: "This resource does not exist.({0})"
+existingUser:
+  code: "-1002"
+  message: "You are an existing member."
+notMatchRefreshToken:
+  code: "-1003"
+  message: "Refresh Token does not match."
+entryPointException:
+  code: "-1004"
+  message: "You do not have permission to access this resource."
+userPasswordNotMatch:
+  code: "-1005"
+  message: "Password is incorrect."

@@ -1,0 +1,37 @@
+# PORT
+server:
+  port: 8080
+
+spring:
+  # DB
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  datasource:
+    url: jdbc:h2:mem:spring-boot
+    username: root
+    password:
+    driver-class-name: org.h2.Driver
+
+  # JPA
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+jwt:
+  token:
+    access-token-secret-key: aG91Mjctc2ltcGxlLXNwcmluZy1ib290LWFwaS1qd3QK
+    access-token-expire-length: 300000
+    refresh-token-secret-key: cmVmcmVzaHRva2Vuc2VjcmV0a2V5Cg==
+    refresh-token-expire-length: 6000000

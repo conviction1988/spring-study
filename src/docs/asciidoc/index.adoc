@@ -1,0 +1,254 @@
+= API Document
+:toc: left
+:toclevels: 2
+:source-highlighter: highlightjs
+
+[[introduction]]
+== 소개
+스프링 스터디
+
+link:http://localhost:8080/swagger-ui/index.html[Swagger Link]
+
+[[common]]
+== 공통 사항
+
+
+=== Domain
+
+|===
+| 환경 | Domain
+
+| 개발서버
+| `http://localhost:8080`
+
+| 운영서버
+| -
+|===
+
+=== Common Request Parameters
+공통 파라미터
+|===
+| Key | Value | Description
+
+| lang
+| en, ko
+| 응답 메세지 언어 설정(기본값은 en, 옵션)
+
+|===
+
+=== Common Response
+공통응답
+|===
+| 코드 | 코드명
+
+| data / page
+| data는 단일 데이터, page는 페이징된 데이터
+
+| success
+| 응답 성공여부 : true / false
+
+| code
+| 응답 코드 번호 : > 0 정상, < 0 비정상
+
+| message
+| 응답 메시지
+|===
+
+응답코드
+|===
+| 코드 | 코드명
+
+| SERVER_ERROR
+| 서버 에러입니다.
+
+| UNAUTHORIZED
+| 인증에 실패하였습니다.
+
+| BAD_PARAMETER
+| 요청 파라미터가 잘못되었습니다.
+
+| NOT_FOUND
+| 리소스를 찾지 못했습니다.
+
+| OK
+| 요청이 성공하였습니다.
+|===
+
+&#160;
+
+== 2. 인증
+로그인을 하면 Response Body에 accessToken, refreshToken 정보가 있습니다.
+accessToken을 Request headers key에 "Authentication", value에 "Bearer {accessToken}" 정보를 넣어서 통신합니다.
+
+&#160;
+
+== 3. Auth
+=== 3-1. 회원가입
+link:http://localhost:8080/swagger-ui/index.html#/auth-api/signUp[Swagger Link]
+
+//===== Request
+//include::{snippets}/auth-sign-up-get/request-parameters.adoc[]
+===== Request Example
+include::{snippets}/auth-sign-up-post/http-request.adoc[]
+
+===== Response
+include::{snippets}/auth-sign-up-post/response-fields.adoc[]
+
+===== Response Example
+include::{snippets}/auth-sign-up-post/response-body.adoc[]
+
+===== Response Error Code & Message
+
+|===
+| 코드 | 코드명 | 메세지
+
+| CONFLICT
+| -1002
+| You are an existing member.
+
+| SERVER_ERROR
+| -9999
+| An unknown error has occurred.
+
+|===
+
+
+=== 3-2. 로그인
+link:http://localhost:8080/swagger-ui/index.html#/auth-api/signIn[Swagger Link]
+
+//===== Request
+//include::{snippets}/auth-sign-up-get/request-parameters.adoc[]
+===== Request Example
+include::{snippets}/auth-sign-in-post/http-request.adoc[]
+
+===== Response
+include::{snippets}/auth-sign-in-post/response-fields.adoc[]
+
+===== Response Example
+include::{snippets}/auth-sign-in-post/response-body.adoc[]
+
+===== Response Error Code & Message
+
+|===
+| 코드 | 코드명 | 메세지
+
+| NOT_FOUND
+| -1000
+| This member not exist.
+
+| SERVER_ERROR
+| -1005
+| Password is incorrect.
+
+| SERVER_ERROR
+| -9997
+| Error on Refresh Token.
+
+|===
+
+=== 3-3. 로그아웃
+link:http://localhost:8080/swagger-ui/index.html#/auth-api/signOut[Swagger Link]
+
+//===== Request
+//include::{snippets}/auth-sign-up-get/request-parameters.adoc[]
+===== Request Example
+include::{snippets}/auth-sign-out-post/http-request.adoc[]
+
+===== Response
+include::{snippets}/auth-sign-out-post/response-fields.adoc[]
+
+===== Response Example
+include::{snippets}/auth-sign-out-post/response-body.adoc[]
+
+&#160;
+
+== 4. Product
+=== 4-1. 상품 조회
+link:http://localhost:8080/swagger-ui/index.html#/product-api/getProduct[Swagger Link]
+
+===== Request Path Parameters
+include::{snippets}/products-get/path-parameters.adoc[]
+
+===== Request Example
+include::{snippets}/products-get/http-request.adoc[]
+
+===== Response
+include::{snippets}/products-get/response-fields.adoc[]
+
+===== Response Example
+include::{snippets}/products-get/response-body.adoc[]
+
+===== Response Error Code & Message
+
+|===
+| 코드 | 코드명 | 메세지
+
+| NOT_FOUND
+| -1001
+| This resource does not exist.(Product)
+
+|===
+
+=== 4-2. 상품 주문
+link:http://localhost:8080/swagger-ui/index.html#/product-api/productOrder[Swagger Link]
+
+===== Request Path Parameters
+include::{snippets}/products-orders-post/path-parameters.adoc[]
+
+===== Request Example
+include::{snippets}/products-orders-post/http-request.adoc[]
+
+===== Response
+include::{snippets}/products-orders-post/response-fields.adoc[]
+
+===== Response Example
+include::{snippets}/products-orders-post/response-body.adoc[]
+
+
+===== Response Error Code & Message
+
+|===
+| 코드 | 코드명 | 메세지
+
+| UNAUTHORIZED
+| -1004
+| You do not have permission to access this resource.
+
+| NOT_FOUND
+| -1001
+| This resource does not exist.(Product)
+
+| SERVER_ERROR
+| -9999
+| An unknown error has occurred.
+
+|===
+
+&#160;
+
+== 5. MyPage
+=== 5-1. 회원 주문 내역
+link:http://localhost:8080/swagger-ui/index.html#/my-page-api/getUserOrders[Swagger Link]
+
+===== Request Example
+include::{snippets}/my-page-orders/http-request.adoc[]
+
+===== Response
+include::{snippets}/my-page-orders/response-fields.adoc[]
+
+===== Response Example
+include::{snippets}/my-page-orders/response-body.adoc[]
+
+
+|===
+| 코드 | 코드명 | 메세지
+
+| UNAUTHORIZED
+| -1004
+| You do not have permission to access this resource.
+
+| NOT_FOUND
+| -1001
+| This resource does not exist.(User)
+
+|===
