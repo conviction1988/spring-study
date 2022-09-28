@@ -138,6 +138,7 @@ class MyPageIntegrationTests {
 
                                         fieldWithPath("page.content.[0].product").type(JsonFieldType.OBJECT).description("ProductResponse"),
                                         fieldWithPath("page.content.[0].product.name").type(JsonFieldType.STRING).description("name"),
+                                        fieldWithPath("page.content.[0].product.currency").type(JsonFieldType.STRING).description("currency"),
                                         fieldWithPath("page.content.[0].product.price").type(JsonFieldType.NUMBER).description("price")
                                 )
                         )

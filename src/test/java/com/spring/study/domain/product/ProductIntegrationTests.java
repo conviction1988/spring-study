@@ -91,6 +91,7 @@ class ProductIntegrationTests {
                                                 fieldWithPath("data").type(JsonFieldType.OBJECT).description("ProductResponse"),
 
                                                 fieldWithPath("data.name").type(JsonFieldType.STRING).description("name"),
+                                                fieldWithPath("data.currency").type(JsonFieldType.STRING).description("currency"),
                                                 fieldWithPath("data.price").type(JsonFieldType.NUMBER).description("price")
                                         )
                                 )
@@ -149,6 +150,7 @@ class ProductIntegrationTests {
 
                                         fieldWithPath("data.product").type(JsonFieldType.OBJECT).description("ProductResponse"),
                                         fieldWithPath("data.product.name").type(JsonFieldType.STRING).description("name"),
+                                        fieldWithPath("data.product.currency").type(JsonFieldType.STRING).description("currency"),
                                         fieldWithPath("data.product.price").type(JsonFieldType.NUMBER).description("price")
                                 )
                         )

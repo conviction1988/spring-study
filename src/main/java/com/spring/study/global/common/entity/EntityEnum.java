@@ -24,7 +24,7 @@ public class EntityEnum {
 	}
 
 	public enum Currency implements EnumModel {
-		KRW("KRW");
+		KRW("KRW"), USD("USD");
 
 		private String value;
 
