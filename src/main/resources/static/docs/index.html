@@ -872,8 +872,8 @@ Host: localhost:8080
   "code" : 0,
   "message" : "SUCCESS.",
   "data" : {
-    "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsZWVzY290dEBnbWFpbC5jb20iLCJpYXQiOjE2NjQzNzU4MzYsImV4cCI6MTY2NDM3NjEzNn0.WGNCB2hq-I9qG8C5lcUr3oujNepEPtM6TK5E8krXqsY",
-    "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsZWVzY290dEBnbWFpbC5jb20iLCJpYXQiOjE2NjQzNzU4MzYsImV4cCI6MTY2NDM4MTgzNn0.USKu4uwAet1pQbHYWRsWvq3upacwH2QFTK1TjnNF03o"
+    "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsZWVzY290dEBnbWFpbC5jb20iLCJpYXQiOjE2NjQzODE0MDIsImV4cCI6MTY2NDM4MTcwMn0.DX4vyxVjsmFP9y9r2AIVF0dlXTXeZ72ACdWhwib--fo",
+    "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsZWVzY290dEBnbWFpbC5jb20iLCJpYXQiOjE2NjQzODE0MDEsImV4cCI6MTY2NDM4NzQwMX0.TEDqeLkiLGGJrCZN5wJe-aPdbeGIYV1955WYTj70Jug"
   }
 }</code></pre>
 </div>
@@ -1064,6 +1064,11 @@ Host: localhost:8080</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.currency</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">currency</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.price</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">price</p></td>
@@ -1081,7 +1086,8 @@ Host: localhost:8080</code></pre>
   "message" : "SUCCESS.",
   "data" : {
     "name" : "Spring Boot",
-    "price" : 10000
+    "price" : 10000,
+    "currency" : "KRW"
   }
 }</code></pre>
 </div>
@@ -1247,6 +1253,11 @@ Host: localhost:8080</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.product.currency</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">currency</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.product.price</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">price</p></td>
@@ -1278,7 +1289,8 @@ Host: localhost:8080</code></pre>
     },
     "product" : {
       "name" : "Spring Boot",
-      "price" : 10000
+      "price" : 10000,
+      "currency" : "KRW"
     }
   }
 }</code></pre>
@@ -1495,6 +1507,11 @@ Host: localhost:8080</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page.content.[0].product.currency</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">currency</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>page.content.[0].product.price</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">price</p></td>
@@ -1527,13 +1544,14 @@ Host: localhost:8080</code></pre>
       },
       "product" : {
         "name" : "Spring Boot",
-        "price" : 10000
+        "price" : 10000,
+        "currency" : "KRW"
       }
     } ],
     "pageable" : {
       "sort" : {
-        "sorted" : false,
         "unsorted" : true,
+        "sorted" : false,
         "empty" : true
       },
       "pageNumber" : 0,
@@ -1546,14 +1564,14 @@ Host: localhost:8080</code></pre>
     "totalElements" : 1,
     "last" : true,
     "numberOfElements" : 1,
+    "size" : 10,
     "sort" : {
-      "sorted" : false,
       "unsorted" : true,
+      "sorted" : false,
       "empty" : true
     },
-    "number" : 0,
     "first" : true,
-    "size" : 10,
+    "number" : 0,
     "empty" : false
   }
 }</code></pre>

@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: "docker-mysql"
+    image: mysql:8.0.30
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: "SPRING_STUDY"
+      MYSQL_ROOT_PASSWORD: "P@ssw0rd"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
+
+  mongo-docker:
+    container_name: "docker-mongodb"
+    image: arm64v8/mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./volumes/mysql:/var/lib/mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=P@ssw0rd
+      - MONGO_INITDB_DATABASE=SPRING_STUDY
+
+  redis-docker:
+    container_name: "docker-redis"
+    image: redis:latest
+    command: redis-server --requirepass P@ssw0rd --port 6379
+    volumes:
+      - ./volumes/mysql:/var/lib/redis
+    labels:
+      - "name=redis"
+      - "mode=standalone"
+    ports:
+      - 6379:6379

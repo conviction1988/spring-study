@@ -16,10 +16,14 @@ public class ProductSetup {
 
     public Product save() {
 
+        String name = "Spring Boot";
+        BigDecimal price = BigDecimal.valueOf(10000);
+        EntityEnum.Currency currency = EntityEnum.Currency.KRW;
+
         final Product product = productRepository.save(Product.builder()
-                .name("Spring Boot")
-                .currency(EntityEnum.Currency.KRW)
-                .price(BigDecimal.valueOf(10000))
+                .name(name)
+                .currency(currency)
+                .price(price)
                 .build());
         return product;
     }

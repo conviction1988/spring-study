@@ -21,8 +21,7 @@ public class UserSetup {
         final String firstName = "lee";
         final String lastName = "scott";
 
-        SignUpRequest request = SignUpRequestBuilder.build("leescott@gmail.com", "P@ssw0rd",
-                "lee", "scott");
+        SignUpRequest request = SignUpRequestBuilder.build(email, password, firstName, lastName);
 
         final User user = userRepository.save(request.toEntity(EntityEnum.UserRole.ROLE_USER, bCryptPasswordEncoder));
         return user;
